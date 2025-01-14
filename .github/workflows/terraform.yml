@@ -116,6 +116,6 @@ jobs:
         uses: Resourcely-Inc/resourcely-action@38abf2d73d8bb6c91c6563e3c36f6e827ffbf4df
         with:
           resourcely_api_token: ${{ secrets.RESOURCELY_API_TOKEN }}
-          resourcely_api_host: "https://api.staging.resourcely.io"
+          resourcely_api_host: "https://api.dev.resourcely.io"
           tf_plan_directory: "tf-plan-files"
           modules_file: "tf-plan-files/modules-dev.json"
