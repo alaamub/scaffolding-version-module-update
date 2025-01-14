@@ -6,13 +6,13 @@ resource "null_resource" "foo2" {
   }
 }
 
-module "notify_slack" {
-  source  = "terraform-aws-modules/notify-slack/aws"
-  version = "~> 5.0"
+module "sns_topic" {
+  source  = "terraform-aws-modules/sns/aws"
 
-  sns_topic_name = "slack-topic"
+  name  = "simple"
 
-  slack_webhook_url = "https://hooks.slack.com/services/AAA/BBB/CCC"
-  slack_channel     = "aws-notification"
-  slack_username    = "reporter"
+  tags = {
+    Environment = "dev"
+    Terraform   = "true"
+  }
 }
