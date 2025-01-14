@@ -7,8 +7,8 @@ resource "null_resource" "foo2" {
 }
 
 module "sns_topic" {
-  source  = "terraform-aws-modules/sns/aws"
-
+  source  = "terraform-google-modules/cloud-nat/google"
+  version = "2.2.0"
   name  = "simple"
 
   tags = {
