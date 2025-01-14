@@ -6,13 +6,7 @@ resource "null_resource" "foo2" {
   }
 }
 
-module "sns_topic" {
-  source  = "terraform-google-modules/cloud-nat/google"
-  version = "2.2.0"
-  name  = "simple"
-
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
+module "pet" {
+  source  = "carljavier/pet/random"
+  version = "0.0.5"
 }
