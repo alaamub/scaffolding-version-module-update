@@ -119,4 +119,4 @@ jobs:
           resourcely_api_host: "https://api.dev.resourcely.io"
           tf_plan_directory: "tf-plan-files"
           modules_file: "tf-plan-files/modules-dev.json"
-          docker_tag: "latest-dev"
+          docker_tag: "dev-latest"
