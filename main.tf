@@ -1,6 +1,5 @@
 # main.tf
-
-resource "null_resource" "foo" {
+resource "null_resource" "foo2" {
   triggers = {
     foo = var.project
   }
