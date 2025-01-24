@@ -44,6 +44,7 @@ jobs:
         with:
           name: modules-file-${{ matrix.env }}
           path: .terraform/modules/modules.json
+          if-no-files-found: warn
 
       - name: Terraform Plan
         run: terraform plan -state=${{ matrix.env }}.tfstate -var-file=${{ matrix.env }}.tfvars -refresh=false -out=plan.raw
@@ -88,6 +89,7 @@ jobs:
         with:
           name: modules-file-dev
           path: tf-plan-files/
+          if-no-files-found: warn
 
       - name: Download Terraform Plan Output
         uses: actions/download-artifact@v4
