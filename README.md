@@ -1,9 +1,17 @@
-# Resourcely Github Actions
+# Resourcely Github Action for testing module version constraints
 
-This repository demonstrates how to integrate Resourcely into
+This repository demonstrates how to integrate Resourcely into a
 repository that uses Github Actions with multi-environment as the Terraform runner.
 
-It contains a [workflow](.github/workflows/terraform.yml) that runs
+The Terraform in this repository is set up to **test guardrails that constrain module versions**, for example:
+
+```
+GUARDRAIL "Module version test"
+  WHEN module.source = "registry.terraform.io/carljavier/pet/random"
+    REQUIRE version MATCHES VERSION ">= 0.1"
+```
+
+The setup contains a [workflow](.github/workflows/terraform.yml) that runs
 `terraform plan` and then uses the [Resourcely Github
 Action](https://github.com/Resourcely-Inc/resourcely-action) to
 evaluate guardrails on that plan.
