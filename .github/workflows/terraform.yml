@@ -44,7 +44,7 @@ jobs:
           if [ -f .terraform/modules/modules.json ]; then
             echo "Modules file exists."
           else
-            echo "Modules file not found. Creating a dummy file."
+            echo "Modules file not found. Creating an empty file."
             mkdir -p .terraform/modules
             echo "{}" > .terraform/modules/modules.json
           fi
