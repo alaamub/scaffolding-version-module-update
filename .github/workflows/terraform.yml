@@ -39,6 +39,16 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Ensure Modules File Exists
+        run: |
+          if [ -f .terraform/modules/modules.json ]; then
+            echo "Modules file exists."
+          else
+            echo "Modules file not found. Creating a dummy file."
+            mkdir -p .terraform/modules
+            echo "{}" > .terraform/modules/modules.json
+          fi
+        
       - name: Upload Terraform Modules File
         uses: actions/upload-artifact@v4
         with:
