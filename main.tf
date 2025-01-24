@@ -8,5 +8,5 @@ resource "null_resource" "foo2" {
 
 module "pet" {
   source  = "carljavier/pet/random"
-  version = "1.0.5"
+  version = "0.0.5"
 }
