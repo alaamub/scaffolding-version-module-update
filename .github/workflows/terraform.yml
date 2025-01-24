@@ -113,7 +113,7 @@ jobs:
           output: tf-plan-files/manifest.json
 
       - name: Resourcely CI
-        uses: Resourcely-Inc/resourcely-action@67ae55cb8102391d3cf93eed848bb780af5cc43f
+        uses: Resourcely-Inc/resourcely-action@main
         with:
           resourcely_api_token: ${{ secrets.RESOURCELY_API_TOKEN }}
           resourcely_api_host: "https://api.dev.resourcely.io"
