@@ -2,8 +2,18 @@
 
 This repository demonstrates how to integrate Resourcely into a repository that uses Github Actions to test module version constraints.
 
+More information about module version constraints can be found in the [Resourcely documentation](https://docs.resourcely.io/concepts/other-features-and-settings/module-versions).
+
 The setup contains a [workflow](.github/workflows/terraform.yml) uses the [Resourcely Github Action](https://github.com/Resourcely-Inc/resourcely-action) to
 evaluate guardrails on the Terraform in this repository. 
+
+The workflow follows these steps:
+
+1. Runs `terraform init`, which produces the file _.terraform/modules/modules.json_. This file contains the metadata required for guardrails to constrain module versions.
+2. The first stage uploads the modules file for the second stage to download, thereby sharing the file between stages.
+3. The `resourcely-ci` stage invokes the Resourcely Github Action, passing `with: modules_file` to provide the downloaded modules file.
+4. The Resourcely Github Action invokes the Resourcely CLI, passing `--modules_file`.
+
 ## Usage
 
 This repository is a template. Some setup is required after cloning to use it.
