@@ -130,6 +130,6 @@ jobs:
           resourcely_api_token: ${{ secrets.RESOURCELY_API_TOKEN }}
           resourcely_api_host: "https://api.dev.resourcely.io"
           tf_plan_directory: "tf-plan-files"
-          # modules_file: "tf-plan-files/modules.json"
+          modules_file: "tf-plan-files/modules.json"
           docker_tag: "dev-latest"
         
